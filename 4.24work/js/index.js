@@ -1,5 +1,5 @@
 
-
+let bus = new Vue()
 
 
 // 头部
@@ -42,19 +42,33 @@ Vue.component('header-bottom',{
                 {
                     text:"我的问答"
                 }
-            ]
+            ],
+            cut:{
+                boxone:true,
+                boxtwo:false
+            },
+            cuts:{
+                boxone:false,
+                boxtwo:true
+            }
         }
     },
     methods:{
         change(index){
             this.currentIndex = index
+        },
+        toggle(){
+            bus.$emit('showCut',this.cut)
+        },
+        toggles(){
+            bus.$emit('showCuts',this.cuts)
         }
     },
     template:`
         <section class="header_two wrapper">
             <ul class="clearfix">
-                <li class="header_two_list"><a class="header_two_list_a list_a_one" href="javascript:;" v-cloak>My Center</a></li>
-                <li class="header_two_list" v-for="(item , index) in list" :key = "index" v-on:click="change(index)" :class = '{ changes:currentIndex == index }'><a class="header_two_list_a" href="javascript:;">{{ item.text }}</a></li>
+                <li class="header_two_list" @click = "toggle"><a class="header_two_list_a list_a_one" href="javascript:;" v-cloak>My Center</a></li>
+                <li class="header_two_list" @click = "toggles" v-for="(item , index) in list" :key = "index" v-on:click="change(index)" :class = '{ changes:currentIndex == index }'><a class="header_two_list_a" href="javascript:;">{{ item.text }}</a></li>
                 <li class="header_two_list"><a class="header_two_list_a" href="javascript:;" v-cloak>我的收入</a></li>
             </ul>
             <div class="header_two_course">
@@ -433,11 +447,22 @@ let vm = new Vue({
     el:"#box",
     data(){
         return{
-            boxone:true,
-            boxtwo:true
+            show:{
+                boxone:true,
+                boxtwo:false
+            },
         }
     },
     methods:{
         
+    },
+    mounted(){
+        var that = this;
+        bus.$on('showCut',function(show){
+            that.show = show
+        })
+        bus.$on('showCuts',function(show){
+            that.show = show
+        })
     }
 })
