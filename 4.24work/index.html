@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <style>
+        #box{
+            width: 1900px;
+        }
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <header-box></header-box>
+        <main-box v-show = "boxone"></main-box>
+        <mian-box-two v-show ="boxtwo"></mian-box-two>
+        <footer-box></footer-box>
+        
+        <!-- <header class="header">
+            <section class="header_one">
+                <div class="header_one_content wrapper">
+                    <a href="javascript:;"><img src="./imgs/logo.jpg" alt=""></a>
+                    <div class="header_one_content_user">
+                        <a href="javascript:;"><img class="header_one_content_user_img" src="./imgs/tx_1.jpg" alt=""></a>
+                        <a href=""><span class="header_one_content_user_name">罗密欧</span></a>
+                    </div>
+                </div>
+            </section>
+            <section class="header_two wrapper">
+                <a href="javascript:;"><img src="./imgs/my_center.jpg" alt=""></a>
+                <ul class="clearfix">
+                    <li class="header_two_list"><a class="header_two_list_a" href="javascript:;">基本信息</a></li>
+                    <li class="header_two_list"><a class="header_two_list_a" href="javascript:;">课程管理</a></li>
+                    <li class="header_two_list"><a class="header_two_list_a" href="javascript:;">我的问答</a></li>
+                </ul>
+                <div class="header_two_course">
+                    <span class="header_two_course_span"><i class="header_two_course_span_icon">+</i>添加课程</span>
+                </div>
+            </section>
+        </header>   -->
+        
+        <!-- <main class="main main_one wrapper">
+            <section class="main_left">
+                <div class="main_left_one main_left_div">
+                    <a href="javascript:;"><img class="main_left_one_img" src="./imgs/tx_1.jpg" alt=""></a>
+                    <div class="main_left_one_text">
+                        <p class="main_left_one_text_pone">
+                            <span class="main_left_one_text_name">罗密欧</span>
+                            <i class="main_left_one_text_people"></i>
+                        </p>
+                        <p class="main_left_one_text_ptwo">
+                            <span>信息完整度</span>
+                            <span class="bule_article"></span>
+                            <span class="bule_text">高</span>
+                        </p>
+                        <span class="main_left_one_text_span">
+                            <i class="fa fa-mobile fa-2x main_left_one_text_span_i main_left_one_text_span_icon"></i>
+                            <i class="fa fa-id-card-o fa-lg main_left_one_text_span_i"></i>
+                            <i class="fa fa-envelope-o fa-lg main_left_one_text_span_i"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="main_left_two main_left_div">
+                    <div class="main_left_two_left">申请提现</div>
+                    <div class="main_left_two_right">
+                        <p class="main_left_two_right_balance">账户余额</p>
+                        <p class="main_left_two_right_text"><span class="main_left_two_right_num">248</span><span>元</span></p>
+                    </div>
+                </div>
+                <div class="main_left_three">
+                    <div>
+                        <span class="main_left_three_img"><i class="fa fa-address-card-o fa-5x main_left_three_img_icon"></i></span>
+                        <p class="main_left_three_p">实名认证 <span class="main_left_three_span">【未认证】</span></p>
+                    </div>
+                    <div>
+                        <span class="main_left_three_img"><i class="fa fa-file-text fa-5x main_left_three_img_icon"></i></span>
+                        <p class="main_left_three_p">资质认证<span class="main_left_three_span">【未认证】</span></p>
+                    </div>
+                </div>
+            </section>
+            <section class="main_right">
+                <div class="main_right_top">
+                    <div class="main_right_top_left main_right_top_div">
+                        <p class="main_right_top_title">我上传的课程</p>
+                        <p class="main_right_top_num">3<span class="main_right_top_text">个</span></p>
+                        <p class="main_right_top_details"><a href="javascript:;"><span>查看详情</span><i class="fa fa-angle-right fa-lg main_right_top_details_icon"></i></a></p>
+                    </div>
+                    <div class="main_right_top_right main_right_top_div">
+                        <p class="main_right_top_title">我的问答</p>
+                        <p class="main_right_top_num">3<span class="main_right_top_text">个</span></p>
+                        <p class="main_right_top_details"><a href="javascript:;"><span>查看详情</span><i class="fa fa-angle-right fa-lg main_right_top_details_icon"></i></a></p>
+                    </div>
+                </div>
+                <div class="main_right_bottom">
+                    <p class="main_right_bottom_text clearfix"><span>最新学员</span><span class="main_right_bottom_right">一周内新增25位学员</span></p>
+                    <ul class="main_right_bottom_box">
+                        <li class="main_right_bottom_list">
+                            <a href="javascript:;"><img class="main_right_bottom_list_tx" src="./imgs/tx_2.jpg" alt=""></a>
+                            <p class="main_right_bottom_list_name"><a href="javascript:;">杨志</a></p>
+                        </li>
+                        <li class="main_right_bottom_list">
+                            <a href="javascript:;"><img class="main_right_bottom_list_tx" src="./imgs/tx_3.jpg" alt=""></a>
+                            <p class="main_right_bottom_list_name"><a href="javascript:;">杨静静</a></p>
+                        </li>
+                        <li class="main_right_bottom_list">
+                            <a href="javascript:;"><img class="main_right_bottom_list_tx" src="./imgs/tx_4.jpg" alt=""></a>
+                            <p class="main_right_bottom_list_name"><a href="javascript:;">吕子秋</a></p>
+                        </li>
+                        <li class="main_right_bottom_list">
+                            <a href="javascript:;"><img class="main_right_bottom_list_tx" src="./imgs/tx_1.jpg" alt=""></a>
+                            <p class="main_right_bottom_list_name"><a href="javascript:;">阎强</a></p>
+                        </li>
+                        <li class="main_right_bottom_list">
+                            <a href="javascript:;"><img class="main_right_bottom_list_tx" src="./imgs/tx_5.jpg" alt=""></a>
+                            <p class="main_right_bottom_list_name"><a href="javascript:;">郭小宜</a></p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main> -->
+        <!-- <main class="main main_two wrapper">
+            
+            <section class="main_two_left">
+                <div class="main_two_left_top_box">
+                    <img class="main_two_left_top_box_img" src="./imgs/tx_1.jpg" alt="">
+                    <p class="main_two_left_top_box_text">编辑</p>
+                </div>
+                <div class="main_two_left_bottom_box">
+                    <p class="main_two_left_bottom_box_p">
+                        <a href="javascript:;">
+                            <i class="fa fa-user fa-2x main_two_left_bottom_box_p_icon main_two_left_bottom_icon_one"></i>
+                            <span>我的信息</span>
+                        </a>
+                    </p>
+                    <p class="main_two_left_bottom_box_p">
+                        <a href="javascript:;">
+                            <i class="fa fa-check-square fa-2x main_two_left_bottom_box_p_icon"></i>
+                            <span>认证信息</span>
+                        </a>
+                        
+                    </p>
+                    <p class="main_two_left_bottom_box_p">
+                        <a href="javascript:;">
+                            <i class="fa fa-cog fa-2x main_two_left_bottom_box_p_icon"></i>
+                            <span>密码管理</span>
+                        </a>
+                        
+                    </p>
+                </div>
+            </section>
+            
+            <section class="main_two_right main_two_ringht_one">
+                <ul>
+                    <li class="main_two_right_p clearfix">
+                        <span class="main_two_right_text">姓名</span>
+                        <span class="main_two_right_relative">刘子熙</span>
+                        <span class="main_two_right_p_one"><a href="javascript:;"><i class="fa fa-pencil fa-lg main_two_right_p_one_icon"></i> 编辑</a></span>
+                    </li>
+                    <li class="main_two_right_p">
+                        <span class="main_two_right_text">出生日期</span>
+                        <span class="main_two_right_relative">1990年3月2日</span>
+                    </li>
+                    <li class="main_two_right_p">
+                        <span class="main_two_right_text">性别</span>
+                        <span class="main_two_right_relative">男</span>
+                    </li>
+                    <li class="main_two_right_p">
+                        <span class="main_two_right_text">手机号</span>
+                        <span class="main_two_right_relative">15910578034</span>
+                        <span class="main_two_right_p_num"><i class="fa fa-check main_two_right_p_num_icon"></i>已验证</span>
+                    </li>
+                    <li class="main_two_right_p" v-for= "(item,index) in information" :key = "index">
+                        <span class="main_two_right_text" v-cloak>{{ item.text }}</span>
+                        <span class="main_two_right_relative" v-cloak>{{ item.relative }}</span>
+                    </li>
+                </ul>
+            </section>
+        
+            <section class="main_two_right main_two_ringht_er">
+                <ul>
+                    <li class="main_two_right_div clearfix">
+                        <span class="main_two_right_text">姓名</span>
+                        <input class="main_two_right_p_input" type="text" value="刘子熙">
+                    </li>
+                    <li class="main_two_right_div">
+                        <span class="main_two_right_text">出生日期</span>
+                        <input class="main_two_right_p_input" type="text" placeholder="本项不可输入，填写完身份证信息后自动同步出生日期">
+                    </li>
+                    <li class="main_two_right_div">
+                        <span class="main_two_right_text">性别</span>
+                        <div class="main_two_right_p_div">
+                            <input class="main_two_right_p_input" type="text" placeholder="男">
+                            <i class="fa fa-angle-down fa-lg main_two_right_p_div_icon"></i>
+                        </div>
+                    </li>
+                    <li class="main_two_right_div">
+                        <span class="main_two_right_text">手机号</span>
+                        <div class="main_two_right_p_div main_two_right_p_div_num">
+                            <input class="main_two_right_p_input main_two_right_p_input_num" type="text" value="15910578034">
+                            <span class="main_two_right_p_num main_two_right_p_num_two"><i class="fa fa-check main_two_right_p_num_icon"></i>已验证</span>
+                            <div class="main_two_right_p_input_num_text">获取验证码</div>
+                        </div>
+                    </li>
+                    <li class="main_two_right_div" v-for= "(item,index) in information" :key = "index">
+                        <span class="main_two_right_text">{{ item.text }}</span>
+                        <input class="main_two_right_p_input" type="text" :value="item.relative">
+                    </li>
+                </ul>
+                <div class="main_two_right_div_end">
+                    <span class="main_two_right_div_end_button button_left">保存信息</span>
+                    <span class="main_two_right_div_end_button button_right">取消修改</span>
+                </div>
+            </section>
+        </main> -->
+        <!-- <footer class="footer">
+        <section class="wrapper">
+            <p class="footer_one">中国领先大学生成长平台<i class="fa fa-copyright footer_one_icon"></i>2016 e学聘</p>
+            <p class="footer_two">ICP备16500007号<i class="vertical_icon"></i>
+                <a class="footer_one_a" href="javascript:;">联系我们</a>exuepin@exuepin.com<i class="vertical_icon"></i><a class="footer_one_a" href="javascript:;">关于我们</a>
+            </p>
+        </section>
+    </footer>  -->
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="./js/index.js"></script>
+</html>
