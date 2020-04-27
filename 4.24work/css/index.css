@@ -455,6 +455,7 @@ a{
     color: #666666;
 }
 .main_two_ringht_one{
+    position: relative;
     padding-bottom: 116px;
 }
 .main_two_right_p{
@@ -478,8 +479,10 @@ a{
     letter-spacing: 1px;
 }
 .main_two_right_p_one{
-    float: right;
+    position: absolute;
     color: #00aaff;
+    top: 60px;
+    right: 60px;
 }
 .main_two_right_p_one_icon{
     vertical-align: text-top;

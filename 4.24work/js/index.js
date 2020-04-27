@@ -326,11 +326,11 @@ Vue.component('main-two-right-one',{
     template:`
         <section class="main_two_right main_two_ringht_one">
             <ul>
-                <li class="main_two_right_p clearfix">
+                <li class="main_two_right_p">
                     <span class="main_two_right_text">姓名</span>
                     <span class="main_two_right_relative">{{ medolDatas.name }}</span>
-                    <span class="main_two_right_p_one" v-on:click = "changes"><a href="javascript:;"><i class="fa fa-pencil fa-lg main_two_right_p_one_icon"></i> 编辑</a></span>
                 </li>
+                <span class="main_two_right_p_one" v-on:click = "changes"><a href="javascript:;"><i class="fa fa-pencil fa-lg main_two_right_p_one_icon"></i> 编辑</a></span>
                 <li class="main_two_right_p">
                     <span class="main_two_right_text">出生日期</span>
                     <span class="main_two_right_relative">1990年3月2日</span>
