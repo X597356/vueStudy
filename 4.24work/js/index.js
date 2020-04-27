@@ -66,7 +66,7 @@ Vue.component('header-bottom',{
     },
     template:`
         <section class="header_two wrapper">
-            <ul class="clearfix">
+            <ul class="header_two_ul">
                 <li class="header_two_list" @click = "toggle"><a class="header_two_list_a list_a_one" href="javascript:;" v-cloak>My Center</a></li>
                 <li class="header_two_list" @click = "toggles" v-for="(item , index) in list" :key = "index" v-on:click="change(index)" :class = '{ changes:currentIndex == index }'><a class="header_two_list_a" href="javascript:;">{{ item.text }}</a></li>
                 <li class="header_two_list"><a class="header_two_list_a" href="javascript:;" v-cloak>我的收入</a></li>
@@ -163,20 +163,25 @@ Vue.component('main-right',{
     </section>
     `
 })
+
 // 中间部分右半边上半部分
 Vue.component('main-right-top',{
+
     template:`
         <div class="main_right_top">
-            <div class="main_right_top_left main_right_top_div">
-                <p class="main_right_top_title">我上传的课程</p>
-                <p class="main_right_top_num">3<span class="main_right_top_text">个</span></p>
+            <main-right-top-div :title="{'text':'我上传的课程','num':'3'}"></main-right-top-div>
+            <main-right-top-div :title="{'text':'我的问答','num':'3'}"></main-right-top-div>
+        </div>
+    `
+})
+// 中间部分右半边上半部分单个组件
+Vue.component('main-right-top-div',{
+    props:['title'],
+    template:`
+        <div class="main_right_top_left main_right_top_div">
+                <p class="main_right_top_title">{{ title.text }}</p>
+                <p class="main_right_top_num">{{ title.num }}<span class="main_right_top_text">个</span></p>
                 <p class="main_right_top_details"><a href="javascript:;"><span>查看详情</span><i class="fa fa-angle-right fa-lg main_right_top_details_icon"></i></a></p>
-            </div>
-            <div class="main_right_top_right main_right_top_div">
-                <p class="main_right_top_title">我的问答</p>
-                <p class="main_right_top_num">3<span class="main_right_top_text">个</span></p>
-                <p class="main_right_top_details"><a href="javascript:;"><span>查看详情</span><i class="fa fa-angle-right fa-lg main_right_top_details_icon"></i></a></p>
-            </div>
         </div>
     `
 })
@@ -267,7 +272,20 @@ Vue.component('mian-box-two',{
 Vue.component('mian-two-left',{
     data(){
         return{
-
+            datas:[
+                {
+                    icon:"fa-user",
+                    text:"我的信息"
+                },
+                {
+                    icon:"fa-check-square",
+                    text:"我的信息"
+                },
+                {
+                    icon:"fa-cog",
+                    text:"我的信息"
+                }
+            ]
         }
     },
     
@@ -277,28 +295,15 @@ Vue.component('mian-two-left',{
                 <img class="main_two_left_top_box_img" src="./imgs/tx_1.jpg" alt="">
                 <p class="main_two_left_top_box_text">编辑</p>
             </div>
-            <div class="main_two_left_bottom_box">
-                <p class="main_two_left_bottom_box_p main_two_left_bottom_color">
+            
+            <ul class="main_two_left_bottom_box">
+                <li class="main_two_left_bottom_box_p " v-for="(item,index) in datas">
                     <a href="javascript:;">
-                        <i class="fa fa-user fa-2x main_two_left_bottom_box_p_icon main_two_left_bottom_icon_one"></i>
-                        <span>我的信息</span>
+                        <i class="fa fa-2x main_two_left_bottom_box_p_icon" :class='item.icon'></i>
+                        <span>{{ item.text }}</span>
                     </a>
-                </p>
-                <p class="main_two_left_bottom_box_p">
-                    <a href="javascript:;">
-                        <i class="fa fa-check-square fa-2x main_two_left_bottom_box_p_icon"></i>
-                        <span>认证信息</span>
-                    </a>
-                    
-                </p>
-                <p class="main_two_left_bottom_box_p">
-                    <a href="javascript:;">
-                        <i class="fa fa-cog fa-2x main_two_left_bottom_box_p_icon"></i>
-                        <span>密码管理</span>
-                    </a>
-                    
-                </p>
-            </div>
+                </li>
+            </ul>
         </section>
     `
 })
@@ -381,43 +386,51 @@ Vue.component('main-two-right-er',{
             <form>
                 <ul>
                     <li class="main_two_right_div clearfix">
-                        <span class="main_two_right_text">姓名</span>
-                        <input class="main_two_right_p_input" type="text"  v-model="medolDatas.name">
+                        
+                        <label class="main_two_right_text" for="one">姓名</label>
+                        <input class="main_two_right_p_input" type="text" id="one" v-model="medolDatas.name">
                     </li>
                     <li class="main_two_right_div">
-                        <span class="main_two_right_text">出生日期</span>
-                        <input class="main_two_right_p_input" disabled type="text" placeholder="本项不可输入，填写完身份证信息后自动同步出生日期">
+                        
+                        <label class="main_two_right_text" for="two">出生日期</label>
+                        <input class="main_two_right_p_input" disabled id="two" type="text" placeholder="本项不可输入，填写完身份证信息后自动同步出生日期">
                     </li>
                     <li class="main_two_right_div">
-                        <span class="main_two_right_text">性别</span>
+                        
+                        <label class="main_two_right_text" for="three">性别</label>
                         <div class="main_two_right_p_div">
-                            <input class="main_two_right_p_input" type="text" placeholder="男">
+                            <input class="main_two_right_p_input" id="three" type="text" placeholder="男">
                             <i class="fa fa-angle-down fa-lg main_two_right_p_div_icon"></i>
                         </div>
                     </li>
                     <li class="main_two_right_div">
-                        <span class="main_two_right_text">手机号</span>
+                        
+                        <label class="main_two_right_text" for="four">手机号</label>
                         <div class="main_two_right_p_div main_two_right_p_div_num">
-                            <input class="main_two_right_p_input main_two_right_p_input_num" type="text"  v-model="medolDatas.cellPhone">
+                            <input class="main_two_right_p_input main_two_right_p_input_num" id="four" type="text"  v-model="medolDatas.cellPhone">
                             <span class="main_two_right_p_num main_two_right_p_num_two"><i class="fa fa-check main_two_right_p_num_icon"></i>已验证</span>
                             <div class="main_two_right_p_input_num_text">获取验证码</div>
                         </div>
                     </li>
                     <li class="main_two_right_div">
-                        <span class="main_two_right_text">邮箱</span>
-                        <input class="main_two_right_p_input" type="text" v-model = "medolDatas.email">
+                        
+                        <label class="main_two_right_text" for="five">邮箱</label>
+                        <input class="main_two_right_p_input" id="five" type="text" v-model = "medolDatas.email">
                     </li>
                     <li class="main_two_right_div">
-                        <span class="main_two_right_text">身份证</span>
-                        <input class="main_two_right_p_input" type="text" v-model = "medolDatas.idCard">
+                        
+                        <label class="main_two_right_text" for="six">身份证</label>
+                        <input class="main_two_right_p_input" id="six" type="text" v-model = "medolDatas.idCard">
                     </li>
                     <li class="main_two_right_div">
-                        <span class="main_two_right_text">微信号</span>
-                        <input class="main_two_right_p_input" type="text" v-model = "medolDatas.weixin">
+                        
+                        <label class="main_two_right_text" for="seven">微信号</label>
+                        <input class="main_two_right_p_input" id="seven" type="text" v-model = "medolDatas.weixin">
                     </li>
                     <li class="main_two_right_div">
-                        <span class="main_two_right_text">QQ号</span>
-                        <input class="main_two_right_p_input" type="text" v-model = "medolDatas.QQ">
+                        
+                        <label class="main_two_right_text" for="eight">QQ号</label>
+                        <input class="main_two_right_p_input" id="eight" type="text" v-model = "medolDatas.QQ">
                     </li>
                 </ul>
             </form>
